@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerGrid Solutions | Consumer Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="quote-section" id="quote-section">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <div class="logo-text">PowerGrid Solutions</div>
+            </div>
+            <h1 id="quote-title">Empowering Communities, Energizing Lives</h1>
+            <p id="quote-text">"Electricity is the modern magic that lights our homes, powers our industries, and connects our world. We are committed to delivering this essential service reliably and sustainably."</p>
+            <p class="author" id="quote-author">- Thomas Edison, Electrical Innovator</p>
+            
+            <div class="features" id="features">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div>24/7 Reliable Power Supply</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <div>Advanced Safety Systems</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌿</div>
+                    <div>Sustainable Energy Solutions</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📞</div>
+                    <div>24/7 Customer Support</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <div class="tabs">
+                <button class="tab-btn active" id="login-tab" onclick="showTab('login')">
+                    <span>🔑</span> Login
+                </button>
+                <button class="tab-btn" id="register-tab" onclick="showTab('register')">
+                    <span>📝</span> Registration
+                </button>
+            </div>
+            
+            <div class="form-container">
+                <!-- Login Form -->
+                <div id="login-form" class="form-page active">
+                    <h2>Consumer Login</h2>
+                    <div class="form-group">
+                        <label for="login-userid">User ID</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">👤</div>
+                            <input type="text" id="login-userid" placeholder="Enter your User ID">
+                        </div>
+                        <div class="error" id="login-userid-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">🔒</div>
+                            <input type="password" id="login-password" placeholder="Enter your password">
+                        </div>
+                        <div class="error" id="login-password-error"></div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button class="btn btn-primary" onclick="login()">
+                            <span>🔑</span> Login
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetLoginForm()">
+                            <span>🔄</span> Reset
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Registration Form -->
+                <div id="register-form" class="form-page">
+                    <h2>Consumer Registration</h2>
+                    <div class="form-group">
+                        <label for="consumer-id">Consumer ID</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">🆔</div>
+                            <input type="text" id="consumer-id" placeholder="Generating..." readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bill-number">Bill Number (Last 5 digits)</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">🧾</div>
+                            <input type="number" id="bill-number" placeholder="Enter last 5 digits of your bill">
+                        </div>
+                        <div class="error" id="bill-number-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">👔</div>
+                            <select id="title">
+                                <option value="">Select Title</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr</option>
+                            </select>
+                        </div>
+                        <div class="error" id="title-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customer-name">Full Name</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">👤</div>
+                            <input type="text" id="customer-name" placeholder="Enter your full name">
+                        </div>
+                        <div class="error" id="customer-name-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">✉️</div>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="error" id="email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <div class="phone-group">
+                            <select id="country-code" disabled>
+                                <option value="+91" selected>+91 (India)</option>
+                            </select>
+                            <div class="input-with-icon">
+                                <div class="input-icon">📱</div>
+                                <input type="tel" id="mobile" placeholder="10-digit mobile number">
+                            </div>
+                        </div>
+                        <div class="error" id="mobile-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-id">User ID (5-20 characters)</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">🆔</div>
+                            <input type="text" id="user-id" placeholder="Create your user ID">
+                        </div>
+                        <div class="error" id="user-id-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password (max 30 characters)</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">🔑</div>
+                            <input type="password" id="password" placeholder="Create a password">
+                        </div>
+                        <div class="error" id="password-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <div class="input-icon">🔑</div>
+                            <input type="password" id="confirm-password" placeholder="Confirm your password">
+                        </div>
+                        <div class="error" id="confirm-password-error"></div>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button class="btn btn-primary" onclick="register()">
+                            <span>📝</span> Register
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetRegistrationForm()">
+                            <span>🔄</span> Reset
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Success Page -->
+                <div id="success-page" class="success-page">
+                    <div class="success-icon">✅</div>
+                    <div class="success-message">Registration Successful! Thank you for registering with PowerGrid Solutions</div>
+                    
+                    <div class="consumer-details">
+                        <p><strong>Customer ID:</strong> <span id="success-consumer-id" class="consumer-id"></span></p>
+                        <p><strong>Customer Name:</strong> <span id="success-name"></span></p>
+                        <p><strong>Mobile Number:</strong> <span id="success-mobile"></span></p>
+                    </div>
+                    
+                    <div class="btn-container" style="margin-top: 40px;">
+                        <button class="btn btn-primary" onclick="showTab('login')">
+                            <span>🔑</span> Continue to Login
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
